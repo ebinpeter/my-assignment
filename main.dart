@@ -1,0 +1,87 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:wstapp/chatdisply.dart';
+import 'package:wstapp/status.dart';
+import 'package:wstapp/whatscall.dart';
+
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Tap(),
+        theme: ThemeData(
+            colorScheme:
+            ColorScheme.fromSwatch().copyWith(primary: Color(0xff128C7E))),
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+      ),
+    ),
+  );
+}
+
+class Tap extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('WhatsApp'),
+            // ignore: prefer_const_literals_to_create_immutables
+            actions: [
+              const Icon(Icons.camera_alt_sharp),
+              const SizedBox(
+                width: 20,
+              ),
+              const Icon(Icons.search),
+              const SizedBox(
+                width: 20,
+              ),
+              const Icon(Icons.more_vert),
+            ],
+            bottom: TabBar(
+                labelPadding: EdgeInsets.zero,
+                isScrollable: true,
+                indicatorSize: TabBarIndicatorSize.label,
+                tabs: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .1,
+                    child: Tab(
+                      icon: Icon(Icons.people),
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width*.3,
+                    child: Tab(
+                      text: "Chats",
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width*.3,
+                    child: Tab(
+                      text: "Status",
+                    ),
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width*.3,
+                    child: Tab(
+                      text: "Call",
+                    ),
+                  ),
+                ]),
+          ),
+          body: TabBarView(children: [
+            Center(
+              child: Text("Community"),
+            ),
+           Msg(),
+            Stus(),
+            Wcall(),
+          ]),
+        ));
+  }
+}
