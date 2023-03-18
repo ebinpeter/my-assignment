@@ -1,0 +1,112 @@
+
+import 'package:flutter/material.dart';
+import 'package:login/condact.dart';
+
+class Msg extends StatelessWidget {
+  var img = [
+    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        "photo-1676532221518-791a8474cd4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8eEh4WVRNSExnT2N8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1673603217441-7d92ff358037?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1675545858641-7b90372ced2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1670895244774-2ae104055bf6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfHhIeFlUTUhMZ09jfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        "https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JvdXB8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1675215452934-ab9954f0aa78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8UzRNS0xBc0JCNzR8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1673706696418-953e1621980f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1673603217441-7d92ff358037?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1675545858641-7b90372ced2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+
+  ];
+  var nams = [
+    "Ebin",
+    "Yedhu",
+    "Joel",
+    "Albert",
+    "gopi",
+    "diya",
+    "jon",
+    "pepe",
+    "donny",
+    "Anna",
+    "Steve",
+    "Adam",
+    "Morgan",
+    "Thomas"
+  ];
+  var chat = [
+    "How are you?",
+    'hello',
+    "why?",
+    "oky",
+    "hy",
+    "oky",
+    "bye",
+    "iam here",
+    "done",
+    "oky",
+    "why",
+    "how?",
+    "how much?",
+    "What?"
+
+  ];
+  var icns = [
+    Icons.done_all,
+    Icons.check,
+    Icons.check,
+    Icons.done_all,
+    Icons.check,
+    Icons.done,
+    Icons.done_all,
+    Icons.check,
+    Icons.done,
+    Icons.done_all,
+    Icons.check,
+    Icons.check,
+    Icons.done_all,
+    Icons.check,
+  ];
+  var tims = [
+    "2:00 am",
+    "11:30am",
+    "12:00am",
+    "1:30pm",
+    "4:10pm",
+    "09:30pm",
+    "10:30pm",
+    "8:50am",
+    "7:30am",
+    "5:00 am",
+    "1:30am",
+    "12:00am",
+    "2:30pm",
+    "6:10pm",
+    "3:30pm",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: ListView.custom(
+            childrenDelegate: SliverChildBuilderDelegate((context, index) {
+      return Column(children: [
+        ListTile(
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(img[index]),
+          ),
+          title: Text(nams[index]),
+          subtitle: Row(
+            children: [
+              Icon(icns[index]),
+              Text(chat[index]),
+            ],
+          ),
+          trailing: Text(tims[index]),
+        ),
+      ]);
+    }, childCount: img.length)));
+  }
+}
