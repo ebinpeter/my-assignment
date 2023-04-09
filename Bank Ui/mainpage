@@ -1,0 +1,219 @@
+
+
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: bankUi(),
+        theme: ThemeData(
+            colorScheme:
+                ColorScheme.fromSwatch().copyWith(primary: Colors.black)),
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+      ),
+    ),
+  );
+}
+
+class bankUi extends StatelessWidget {
+  var Icn = [Icons.account_balance, Icons.savings, Icons.phone_android_rounded];
+  var name1 = ["My Account", "Savings", "Payment"];
+  var icn2 = [Icons.groups_sharp, Icons.schedule, Icons.qr_code];
+  var name2 = ["Fund Transfer", "Schedule Payment", "Scan to Pay"];
+  var id = [
+    "CRPWE/ \n56565/4545454545478",
+    "CRPWE/ \n56565/4545454545478",
+    "CRPWE/ \n56565/4545454545478",
+    "CRPWE/ \n56565/4545454545478"
+  ];
+  var date = ["10-2-2019", "11-3-2019", "9-2-2019", "10-5-2019", "15-6-2019"];
+  var total = [
+    "NRP.9000.00",
+    "NRP.10000.00",
+    "NRP.11000.00",
+    "NRP.8000.00",
+    "NRP.7500.00"
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Welcome Ebin Peter"),
+        leading: Icon(Icons.menu),
+        actions: [Icon(Icons.qr_code)],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: 800,
+                  height: 100,
+                  color: Colors.orangeAccent,
+                ),
+                Container(
+                  width: 400,
+                  height: 150,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                    ),
+                    child: Card(
+                      child: Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 40, top: 10),
+                            child: SizedBox(
+                              height: 60,
+                              width: 50,
+                              child: CircleAvatar(
+                                  backgroundImage: NetworkImage(
+                                      "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 100, top: 30),
+                            child: Text(
+                              "SAMMUNATI BACHT KHATA",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 50, left: 100),
+                            child: Text(
+                              "NPR.10002100.35",
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 65, left: 100),
+                            child: Text("566562121212"),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 160, left: 10),
+                  child: Text(
+                    "WOULD YOU LIKE TO?",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 180),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: List.generate(
+                          name1.length,
+                          (index) => SizedBox(
+                              height: 100,
+                              width: 120,
+                              child: Card(
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 20),
+                                      child: Icon(Icn[index],color: Colors.orange,),
+                                    ),
+                                    Text(name1[index])
+                                  ],
+                                ),
+                              )))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 290),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: List.generate(
+                          name1.length,
+                          (index) => SizedBox(
+                              height: 100,
+                              width: 120,
+                              child: Card(
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 20),
+                                      child: Icon(icn2[index],color: Colors.orange,),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 20),
+                                      child: Text(name2[index]),
+                                    )
+                                  ],
+                                ),
+                              )))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 400,left: 10),
+                  child: Text(
+                    "LAST TRANSACTION",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 420),
+                  child: Column(
+                    children: List.generate(
+                        id.length,
+                        (index) => SizedBox(
+                              width: 500,
+                              height: 100,
+                              child: Card(
+                                shadowColor: Colors.black54,
+                                color: Colors.orange,
+                                shape: BeveledRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Stack(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15),
+                                      child: SizedBox(
+                                        height: 150,
+                                        width: 500,
+                                        child: Container(
+                                            color: Colors.white,
+                                            child: Stack(
+                                              children: [Padding(
+                                                padding: const EdgeInsets.only(top: 10,left:5),
+                                                child: Text(id[index],style: TextStyle(color: Colors.black),),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(left: 5,top:50),
+                                                child: Text(date[index],style: TextStyle(color: Colors.black),),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(left: 250,top: 40),
+                                                child: Text(total[index],style: TextStyle(color: Colors.black),),
+                                              )
+                                              ],
+                                            )),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
