@@ -1,0 +1,102 @@
+
+
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:login/toduProject/helpperclass.dart';
+
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: mainUI(),
+        theme: ThemeData(
+            colorScheme:
+                ColorScheme.fromSwatch().copyWith(primary: Colors.black)),
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+      ),
+    ),
+  );
+}
+
+class mainUI extends StatefulWidget {
+  @override
+  State<mainUI> createState() => _mainUIState();
+}
+
+class _mainUIState extends State<mainUI> {
+  final title = TextEditingController();
+  final task = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => showForm(null),
+          child: Icon(Icons.add),
+        ),
+        appBar: AppBar(
+          title: Text("Todo"),
+          leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                  onPressed: () {}, icon: Icon(Icons.account_circle)),
+            )
+          ],
+        ),
+        body: Column(
+          children: [],
+        ));
+  }
+
+  void showForm(int? id) async {
+    showModalBottomSheet(
+        context: context,
+        elevation: 5,
+        isScrollControlled: true,
+        builder: (BuildContext context) {
+          return Container(
+            padding: EdgeInsets.only(
+                top: 10,
+                bottom: MediaQuery.of(context).viewInsets.bottom * 120),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                TextField(
+                  controller: title,
+                  decoration: InputDecoration(hintText: 'title'),
+                ),
+                TextField(
+                  controller: task,
+                  decoration: InputDecoration(hintText: 'Discription'),
+                ),
+                ElevatedButton(
+                    onPressed: () async {
+                      if (id == null) {
+                        await createItem();
+                      }
+                      if (id != null) {
+                        //  await Updateitem();
+                      }
+                      title.text = "";
+                      task.text = "";
+                      Navigator.pop(context);
+                    },
+                    child: Text(id == null ? "create Item " : 'Update Item'))
+              ],
+            ),
+          );
+        });
+  }
+
+  Future<void> createItem() async {
+    await toduHelper.addTask(title.text, task.text);
+  }
+}
